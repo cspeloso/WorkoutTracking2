@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct WorkoutDetailsView: View {
-    
-    @ObservedObject var userData: UserData
-        
+            
     @Binding var workout: Workout
     
     var workoutName: String {
@@ -110,10 +108,9 @@ struct WorkoutDetailsView: View {
 
 struct WorkoutDetailsView_Previews: PreviewProvider {
     
-    static let userData = UserData(routines: [Routine(name: "test1", weekday: "Monday", workouts: [Workout(name: "workout1", sets: [Workout.Set(reps: 10, weight: 65)])])])
+    @State static var workout: Workout = Workout(name: "WorkoutTest", sets: [Workout.Set(reps: 15, weight: 65), Workout.Set(reps: 15, weight: 10)])
     
     static var previews: some View {
-//        WorkoutDetailsView(userData: userData, routine: $userData.routines[0] routineID: userData.routines[0].id, workoutID: userData.routines[0].workouts[0].id)
-        Text("test")
+        WorkoutDetailsView(workout: $workout)
     }
 }

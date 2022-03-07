@@ -17,6 +17,8 @@ struct WorkoutPickerListView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
+            
+            //  Cancel button
             Button {
                 dismiss()
             } label: {
@@ -25,6 +27,7 @@ struct WorkoutPickerListView: View {
             .foregroundColor(.blue)
             .padding()
         
+            //  Lists all exercises
             List {
                 ForEach(exercises.sorted(by: {$0.name < $1.name})) { e in
                     Button{
@@ -41,7 +44,6 @@ struct WorkoutPickerListView: View {
                                 .cornerRadius(10)
                         }
                     }
-                    
                     .foregroundColor(.primary)
                 }
             }
@@ -53,10 +55,9 @@ struct WorkoutPickerListView_Previews: PreviewProvider {
     
     static let exercises: [Exercise] = Bundle.main.decode("exercises.json")
 
-    var s: String = "Bench Press"
+    @State static var s: String = "Bench Press"
     
     static var previews: some View {
-//        WorkoutPickerListView(exercise: $s, exercises: exercises)
-        Text("test")
+        WorkoutPickerListView(exercise: $s, exercises: exercises)
     }
 }

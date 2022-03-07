@@ -24,7 +24,7 @@ struct RoutineView: View {
                     ForEach($userData.routines) { $routine in
                         Section {
                             VStack(alignment: .leading) {
-                                NavigationLink(destination: RoutineDetailsView(userData: userData, routine: $routine)){
+                                NavigationLink(destination: RoutineDetailsView(routine: $routine)){
                                     Text(routine.name)
                                         .padding(.vertical, 10)
                                         .font(.headline)
@@ -48,7 +48,7 @@ struct RoutineView: View {
                 }
             }
             .sheet(isPresented: $showingAddRoutine){
-                AddRoutineView(userData: userData, routines: userData.routines)
+                AddRoutineView(routines: $userData.routines)
             }
         }
         

@@ -158,11 +158,10 @@
 		8321DAF727D2D51F007057AD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				83D3F3E727D5E0540063960D /* FormElements */,
 				83158F3327D4312300EC5709 /* UserRoutines */,
 				83158F3427D4313100EC5709 /* Exercises */,
 				83158F4227D43C4A00EC5709 /* Settings */,
-				83D3F3E327D5D1C00063960D /* WorkoutPicker.swift */,
-				83D3F3E527D5DBC70063960D /* WorkoutPickerListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -175,6 +174,15 @@
 				83158F3D27D433C900EC5709 /* Bundle-String.swift */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		83D3F3E727D5E0540063960D /* FormElements */ = {
+			isa = PBXGroup;
+			children = (
+				83D3F3E327D5D1C00063960D /* WorkoutPicker.swift */,
+				83D3F3E527D5DBC70063960D /* WorkoutPickerListView.swift */,
+			);
+			path = FormElements;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

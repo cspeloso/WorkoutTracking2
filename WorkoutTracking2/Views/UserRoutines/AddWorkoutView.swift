@@ -9,11 +9,9 @@ import SwiftUI
 
 struct AddWorkoutView: View {
     
-    @ObservedObject var userData: UserData
+//    @ObservedObject var userData: UserData
 
     @Binding var routine: Routine
-    
-    var workouts: [Workout] = []
     
     @Environment(\.dismiss) var dismiss
     
@@ -143,11 +141,10 @@ struct AddWorkoutView: View {
 }
 
 struct AddWorkoutView_Previews: PreviewProvider {
-        
-    static let userData = UserData()
+    
+    @State static var routine: Routine = Routine(name: "testRoutine", weekday: "Monday", workouts: [Workout(name: "WorkoutTest", sets: [Workout.Set(reps: 15, weight: 65)])])
     
     static var previews: some View {
-//        AddWorkoutView(userData: userData, routineID: userData.routines[0].id, workouts: userData.routines[0].workouts)
-        Text("ass")
+        AddWorkoutView(routine: $routine)
     }
 }

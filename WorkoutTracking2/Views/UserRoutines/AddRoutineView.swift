@@ -9,9 +9,7 @@ import SwiftUI
 
 struct AddRoutineView: View {
     
-    @ObservedObject var userData: UserData
-    
-    var routines: [Routine]
+    @Binding var routines: [Routine]
     
     @Environment(\.dismiss) var dismiss
     
@@ -56,7 +54,7 @@ struct AddRoutineView: View {
                 ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing){
                     Button("Save"){
                         let routine: Routine = Routine(name: name, weekday: selectedWeekday, workouts: [])
-                        userData.routines.append(routine)
+                        routines.append(routine)
                         
                         dismiss()
                     }
@@ -68,11 +66,9 @@ struct AddRoutineView: View {
 
 struct AddRoutineView_Previews: PreviewProvider {
     
-    static let routines: [Routine] = []
-    
-    static let userData: UserData = UserData(routines: routines)    
+    @State static var routines: [Routine] = []
     
     static var previews: some View {
-        AddRoutineView(userData: userData, routines: routines)
+        AddRoutineView(routines: $routines)
     }
 }

@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct RoutineDetailsView: View {
-    
-    @ObservedObject var userData: UserData
-    
+        
     @Binding var routine: Routine
+    
     
     @State private var routineName: String = ""
     
@@ -33,7 +32,7 @@ struct RoutineDetailsView: View {
                 }
                 else {
                     ForEach($routine.workouts) { $workout in
-                        NavigationLink(destination: WorkoutDetailsView(userData: userData, workout: $workout)){
+                        NavigationLink(destination: WorkoutDetailsView(workout: $workout)){
                             Text(workout.name)
                         }
                     }
@@ -50,7 +49,7 @@ struct RoutineDetailsView: View {
             }
         }
         .sheet(isPresented: $showingWorkoutsView){
-            AddWorkoutView(userData: userData, routine: $routine, workouts: routine.workouts)
+            AddWorkoutView(routine: $routine)
         }
     }
     
@@ -61,12 +60,9 @@ struct RoutineDetailsView: View {
 
 struct RoutineDetailsView_Previews: PreviewProvider {
     
-    static let routine: Routine = Routine(name: "Day 1", weekday: "Monday", workouts: [])
-    
-    static let userData: UserData = UserData(routines: [routine])
+    @State static var routine: Routine = Routine(name: "Day 1", weekday: "Monday", workouts: [])
     
     static var previews: some View {
-//        RoutineDetailsView(userData: userData, routineID: routine.id)
-        Text("ass")
+        RoutineDetailsView(routine: $routine)
     }
 }
