@@ -19,6 +19,7 @@ struct WorkoutPicker: View {
 
     var body: some View {
         
+        //  The button showing the currently selected exercise
         Button {
             isShowingWorkoutPicker = true
         } label: {
@@ -30,6 +31,7 @@ struct WorkoutPicker: View {
         }
         .foregroundColor(.primary)
         .sheet(isPresented: $isShowingWorkoutPicker){
+            //  opens the list of exercises to swap to
             WorkoutPickerListView(exercise: $exercise, exercises: exercises)
         }
     }

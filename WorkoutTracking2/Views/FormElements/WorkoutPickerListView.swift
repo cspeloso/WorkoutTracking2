@@ -21,6 +21,7 @@ struct WorkoutPickerListView: View {
             //  Cancel button
             Button {
                 dismiss()
+                print(dismiss)
             } label: {
                 Text("Cancel")
             }
@@ -33,6 +34,7 @@ struct WorkoutPickerListView: View {
                     Button{
                         exercise = e.name
                         dismiss()
+                        print(dismiss)
                     } label: {
                         HStack {
                             Text(e.name)
