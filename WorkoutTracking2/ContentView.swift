@@ -8,9 +8,28 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject var userData: UserData = UserData()
+
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        TabView {
+            RoutineView(userData: userData)
+                .tabItem {
+                    Image(systemName: "list.bullet.circle.fill")
+                    Text("Routines")
+                }
+            ExerciseView()
+                .tabItem {
+                    Image(systemName: "figure.walk.circle.fill")
+                    Text("Exercises")
+                }
+            SettingsView()
+                .tabItem{
+                    Image(systemName: "gear")
+                    Text("Settings")
+                }
+        }
+        
     }
 }
 
